@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col md-8">
+            <div class="jumbotron p-3">
+                <h2>
+                    Manage <b>Equipment</b> 
+                    <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#mymodal">Add Equipment</button>
+                </h2>
+                <div class="table-responsive">
+                    <table class="table table-light table-sm table-hover ">
+                        <thead class="thead-dark table-hover sticky-top">
+                            <tr>
+                                {% for col in columns %}
+                                    <th>{{ col }}</th>
+                                {% endfor %}
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in equipment_data %}
+                                <tr>
+                                    {% for cell in row %}
+                                        {% if loop.index == 13 and row[1] == 'camera' and cell != none%}
+                                            <td> 
+                                                <img src="data:image/jpeg;base64,{{ cell }}" class="img-thumbnail thumbnail" alt="Image">
+                                            </td>
+                                        {% else %}
+                                            <td>{{ cell }}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>
+                                        <a href="/update/{{row[0]}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row[0]}}">Edit</a>
+                                        <a href="/delete/{{row[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure to delete?')">Delete</a>
+                                    </td>
+                                </tr>
+                            
+                                <div id="modaledit{{row[0]}}" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Update Equipment</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="{{url_for('update')}}" method="POST">
+                                                    <div class="form-group">
+                                                        <label>Serial:</label>
+                                                        <input type="hidden" name="serial" value={{row[0]}}>
+                                                        <input type="text" class="form-control" name="serial" value="{{row[0]}}" disabled></div>
+                                                    <div class="form-group">
+                                                        <label>Type:</label>
+                                                        <input type="text" class="form-control" name="type" value="{{row[1]}}"></div>
+                                                    <div class="form-group">
+                                                        <label>Model:</label>
+                                                        <input type="text" class="form-control" name="model" value="{{row[2]}}"></div>
+                                                    <div class="form-group">
+                                                        <label>Op:</label>
+                                                        <input type="text" class="form-control" name="op" value="{{row[3]}}"></div>
+                                                    <div class="form-group">
+                                                        <label>Deployed:</label>
+                                                        <input type="text" class="form-control" name="deployed" value="{{row[4]}}"></div>
+                                                    <div class="form-group">
+                                                        <label>Description:</label>
+                                                        <input type="text" class="form-control" name="description" value="{{row[5]}}"></div>
+                                                    <div class="form-group">
+                                                        <label>Location:</label>
+                                                        <input type="text" class="form-control" name="location" value="{{row[6]}}"></div>
+                                                    <div class="form-group">
+                                                        <label>GPS (MGRS):</label>
+                                                        <input type="text" class="form-control" name="mgrs" value="{{row[7]}}"></div>
+                                                    <div class="form-group">
+                                                        <label>Mobile:</label>
+                                                        <select name="mobile" id="mobile" placeholder="{{row[8]}}">
+                                                            <option value="True">True</option>
+                                                            <option value="False">False</option>
+                                                        </select></div>
+                                                    <div class="form-group">
+                                                        <label>Online:</label>
+                                                        <select name="online" id="online" placeholder="{{row[9]}}">
+                                                            <option value="True">True</option>
+                                                            <option value="False">False</option>
+                                                        </select></div>
+                                                    <div class="form-group">
+                                                        <label>Tampered:</label>
+                                                        <select name="tampered" id="tampered" placeholder="{{row[10]}}">
+                                                            <option value="True">True</option>
+                                                            <option value="False">False</option>
+                                                        </select></div>
+                                                    <div class="form-group">
+                                                        <label>Battery:</label>
+                                                        <input type="number" class="form-control" name="battery" value="{{row[11]}}"></div>
+                                                    {% if row[1] == 'camera' %}
+                                                        <div class="form-group">
+                                                            <label>Payload:</label>
+                                                            <input type="text" class="form-control" name="payload" value="{{row[12]}}">
+                                                        </div>
+                                                    {% else %}
+                                                        <div class="form-group">
+                                                            <label>Payload:</label>
+                                                            <input type="text" class="form-control" name="payload" value=None>
+                                                        </div>
+                                                    {% endif %}
+                                                    <div class="form-group">
+                                                        <button class="btn btn-primary" type="submit">Update Equipment</button></div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div id="mymodal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Add Equipment</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form action="{{url_for('insert')}}" method="POST">
+                                    <div class="form-group">
+                                        <label>Serial:</label>
+                                        <input type="text" class="form-control" name="serial" required="1"></div>
+                                    <div class="form-group">
+                                        <label>Type:</label>
+                                        <input type="text" class="form-control" name="type" required="1"></div>
+                                    <div class="form-group">
+                                        <label>Model:</label>
+                                        <input type="text" class="form-control" name="model" required="1"></div>
+                                    <div class="form-group">
+                                        <label>Op:</label>
+                                        <input type="text" class="form-control" name="op" required="1"></div>
+                                    <div class="form-group">
+                                        <label>Deployed:</label>
+                                        <input type="text" class="form-control" name="deployed" required="1"></div>
+                                    <div class="form-group">
+                                        <label>Description:</label>
+                                        <input type="text" class="form-control" name="description" required="1"></div>
+                                    <div class="form-group">
+                                        <label>Location:</label>
+                                        <input type="text" class="form-control" name="location" required="1"></div>
+                                    <div class="form-group">
+                                        <label>GPS (MGRS):</label>
+                                        <input type="text" class="form-control" name="mgrs" required="1"></div>
+                                    <div class="form-group">
+                                        <label>Mobile:</label>
+                                        <select name="mobile" id="mobile">
+                                            <option value="True">True</option>
+                                            <option value="False">False</option>
+                                        </select></div>
+                                    <div class="form-group">
+                                        <label>Online:</label>
+                                        <select name="online" id="online">
+                                            <option value="True">True</option>
+                                            <option value="False">False</option>
+                                        </select></div>
+                                    <div class="form-group">
+                                        <label>Tampered:</label>
+                                        <select name="tampered" id="tampered">
+                                            <option value="True">True</option>
+                                            <option value="False">False</option>
+                                        </select></div>
+                                    <div class="form-group">
+                                        <label>Battery:</label>
+                                        <input type="number" class="form-control" name="battery" required="1"></div>
+                                   <div class="form-group">
+                                        <label>Payload:</label>
+                                        <input type="text" class="form-control" name="payload"></div>
+                                    <div class="form-group">
+                                        <button class="btn btn-primary" type="submit">Add Equipment</button></div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

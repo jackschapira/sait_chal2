@@ -1,0 +1,28 @@
+serial,type,model,op,deployed,description,location
+3HpcXpWa,beacon,BE300X,REDZONE,17/07/22,GPS Beacon fitted into car in Op REDZONE,Kyiv
+3ezvLxX5,camera,CA876Y,PURPLEZONE,04/09/22,Long range camera watching street in Op PURPLEZONE,Athens
+5DoNYF5R,collect,BT156P,BLUEZONE,22/10/22,Bluetooth collector fitted into Microwave in Op BLUEZONE,Glasgow
+5xUsoi6a,sensor,MOT300A,YELLOWZONE,11/12/22,Motion detection sensor buried in ground in Op YELLOWZONE,Stockholm
+6BUSrjvt,beacon,BE300X,GREENZONE,03/02/23,GPS beacon hidden in toaster in Op GREENZONE,Lisbon
+Cq5r2aEb,camera,CA931G,BLUEZONE,18/03/23,Thermal camera hidden in bin in Op BLUEZONE,London
+DXNiD6zW,collect,CE11-2G,REDZONE,26/04/23,2G Cellular Survey Collect in Op REDZONE,Minsk
+DgVdRoAe,sensor,DB144A,YELLOWZONE,06/06/23,Noise sensor listening for explosions in YELLOWZONE,Oslo
+J5thMAjj,beacon,BE999A,BLUEZONE,13/07/22,GPS beacon tracking subject of interest vehicle in BLUEZONE,Birmingham
+JWPB8ViK,collect,BT156P,REDZONE,29/08/22,Bluetooth collector outside house of interest in REDZONE,Chisinau
+NXHWio6e,camera,CA445B,YELLOWZONE,14/10/22,IR Camera watching for vehicles in YELLOWZONE,Copenhagen
+PkQhVDd2,sensor,DB144A,BLUEZONE,07/11/22,Noise sensor listening for firearms in BLUEZONE,St Ives
+RfrKvGXk,sensor,MOT300A,PURPLEZONE,19/01/23,Motion detection sensor concealed in cave in Op PURPLEZONE,Bucharest
+S4kpedK6,beacon,BE999B,BLUEZONE,08/03/23,GPS beacon concealed in clothing on Op BLUEZONE,Manchester
+TBTWrYby,collect,CE11-3G,GREENZONE,24/04/23,3G Cellular Survey Collect in Op GREENZONE,Barcelona
+eo6hsDeL,sensor,TEM400X,PURPLEZONE,12/06/23,Temperature sensor concealed in pool table in Op PURPLEZONE,Istanbul
+fMgf5xbU,camera,CA876Y,GREENZONE,09/07/22,Long range camera watching a street in Op GREENZONE,Porto
+hy4SpDfE,sensor,MOT300A,GREENZONE,21/08/22,Motion detection sensor on road of interest in Op GREENZONE,Madrid
+idPqakta,beacon,BE999A,PURPLEZONE,05/10/22,GPS beacon using satellite for egress in PURPLEZONE,Sofia
+m7LBxGi2,camera,CA445B,REDZONE,26/11/22,IR Camera watching for vehicles in REDZONE,Moscow
+mmbWc7Ug,sensor,TEM400X,YELLOWZONE,08/01/23,Temperature sensor concealed in vehicle in Op YELLOWZONE,Helsinki
+nGZfsYgf,beacon,BE300R,GREENZONE,17/02/23,Beacon fitted to underside of lorry in GREENZONE,Rome
+r4KwaCh3,beacon,BE478X,GREENZONE,02/04/23,Beacon inside of coke can in GREENZONE,Berlin
+shiDJqaR,sensor,MOT300A,GREENZONE,21/05/23,Motion detection sensor buried in ground in Op GREENZONE,Paris
+x9KJ7XRB,camera,CA931G,YELLOWZONE,14/07/22,Thermal camera hidden in trees in Op YELLOWZONE,Reykjavic
+xYYwQVzZ,collect,CE11-4G,PURPLEZONE,26/08/22,4G Cellular Survey Collect in OP PURPLEZONE,Tbilisi
+zBcWbHhk,sensor,TEM400X,PURPLEZONE,13/10/22,Temperature sensor concealed in light fixture in Op PURPLEZONE,Thessaloniki
